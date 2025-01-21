@@ -8,12 +8,7 @@ Simple feedback widget with useful functions.
 [npm-image]: http://img.shields.io/npm/v/rc-table.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/si-widgets
 
-
 ## install
-
-[![si-widgets](https://nodei.co/npm/rc-table.png)](https://www.npmjs.com/package/si-widgets)
-
-## Development
 
 ```
 npm install
