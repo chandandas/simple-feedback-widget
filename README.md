@@ -16,22 +16,34 @@ npm start
 
 ## Example
 
+
 ## Usage
-
 ```js
-import { FeedbackWidget } from 'si-widgets';
 
-import 'si-widgets/dist/css/floating-button.css';
-import FeedbackSnapShotPlaceHolder from 'si-widgets/dist/images/image-placeholder.jpg';
-import FeedbackLogo from 'Company Logo';
+import { SimpleFeedbackWidget } from 'simple-feedback-widget';
+
+import 'simple-feedback-widget/dist/css/floating-button.css';
+import FeedbackSnapShotPlaceHolder from 'simple-feedback-widget/dist/images/image-placeholder.jpg';
 const FeedbackAPI = "";
-const FeedbackAPIKey = "GENERATED KEY";
+const FeedbackAPIKey = "Iv2ogmILjSiFll4zXD7GNnHJ5f2S1aGindoh6dL54E2";
+import logo from "public/images/trigent_logo.svg";
+
+export default function FeedbackWidget() {
+  
+  return (
+      
+   <SimpleFeedbackWidget logo={logo.src} imagePlaceHolder={FeedbackSnapShotPlaceHolder} 
+   apiUrl={FeedbackAPI} apikey={FeedbackAPIKey}
+   buttonType='plus' dimension={30} top={'630px'} left={'1450px'} direction="right"/>
+  );
+}
 
 
-   
-   <FeedbackWidget logo={FeedbackLogo} imagePlaceHolder={FeedbackSnapShotPlaceHolder} 
-                            apiUrl={FeedbackAPI} apikey={FeedbackAPIKey}
-                            buttonType='plus' dimension={30} top={'630px'} left={'1450px'} direction="right"/>;
+
+<FeedbackWidget />
+     
+
+
 ```
 
 
