@@ -345,7 +345,7 @@ export default function FeedbackForm(props) {
         </div>
         <div className="card-footer d-flex justify-content-between align-items-center px-3 py-2">
           <div>
-            <small className="text-muted">Simple Feedback Widget</small>
+            <small className="text-muted">Powered by Simple Feedback Widget</small>
           </div>
           <div>
             <button className="btn btn-primary btn-sm" onClick={onSubmit}>
