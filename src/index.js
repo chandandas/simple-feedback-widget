@@ -1,2 +1,2 @@
-export {default as FeedbackWidget} from './floating-buttons/floating-button';
+export {default as SimpleFeedbackWidget} from './floating-buttons/floating-button';
 

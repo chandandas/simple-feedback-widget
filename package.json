@@ -1,6 +1,6 @@
 {
-    "name": "si-widgets",
-    "version": "1.0.64",
+    "name": "simple-feedback-widget",
+    "version": "1.0.2",
     "description": "simple feedback widget",
     "main": "dist/index.js",
     "scripts": {
