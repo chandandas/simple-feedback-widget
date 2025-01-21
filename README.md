@@ -2,7 +2,8 @@
 
 Simple feedback widget with useful functions.
 
-[![NPM version][npm-url] 
+
+[![NPM version][npm-image]][npm-url]
 
 [npm-image]: http://img.shields.io/npm/v/rc-table.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/si-widgets
