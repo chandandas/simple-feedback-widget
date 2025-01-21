@@ -4,12 +4,13 @@ Simple feedback widget with useful functions.
 
 [![NPM version][npm-url] 
 
+[npm-image]: http://img.shields.io/npm/v/rc-table.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/si-widgets
 
 
 ## install
 
-[![si-widgets]](https://www.npmjs.com/package/si-widgets))
+[![si-widgets](https://nodei.co/npm/rc-table.png)](https://www.npmjs.com/package/si-widgets)
 
 ## Development
 
