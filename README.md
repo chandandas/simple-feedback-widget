@@ -5,12 +5,12 @@ Simple feedback widget with useful functions.
 [![NPM version][npm-image]][npm-url]
 
 [npm-image]: http://img.shields.io/npm/v/rc-table.svg?style=flat-square
-[npm-url]: https://www.npmjs.com/package/si-widgets
+[npm-url]: https://www.npmjs.com/package/simple-feedback-widget
 
 ## install
 
 ```
-npm i si-widgets
+npm i simple-feedback-widget
 npm start
 ```
 
