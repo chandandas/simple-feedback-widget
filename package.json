@@ -1,6 +1,6 @@
 {
     "name": "simple-feedback-widget",
-    "version": "1.0.2",
+    "version": "1.0.4",
     "description": "simple feedback widget",
     "main": "dist/index.js",
     "scripts": {

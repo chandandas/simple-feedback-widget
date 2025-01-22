@@ -22,7 +22,7 @@ npm start
 
 import { SimpleFeedbackWidget } from 'simple-feedback-widget';
 
-import 'simple-feedback-widget/dist/css/floating-button.css';
+import 'simple-feedback-widget/dist/css/simple-feedback-widget.css';
 import FeedbackSnapShotPlaceHolder from 'simple-feedback-widget/dist/images/image-placeholder.jpg';
 const FeedbackAPI = "";
 const FeedbackAPIKey = "GENERATED KEY";
