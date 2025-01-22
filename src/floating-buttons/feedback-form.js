@@ -16,11 +16,11 @@ const publicKey = `
 
 function FileItem({ file, removeFile }) {
   if (file === undefined) return;
-
+               
   return (
-    <li className="list-group-item px-0 py-1">
+    <li className="sfw-list-group-item px-0 py-1">
       <p
-        className="text-truncate m-0"
+        className="sfw-text-truncate"
         data-toggle="tooltip"
         data-placement="top"
         title={file.name}
@@ -40,9 +40,9 @@ function FileItem({ file, removeFile }) {
 
 function ShowMessage({ status }) {
   if (parseInt(status.code) === 200) {
-    return <small className="text-center text-success">{status.message}</small>;
-  } else if (status.code === 500) {
-    return <small className="text-center text-danger">{status.message}</small>;
+    return <small className="sfw-text-center sfw-text-success">{status.message}</small>;
+  } else {
+    return <small className="sfw-text-center sfw-text-danger">{status.message}</small>;
   }
 
   return null;
@@ -104,7 +104,7 @@ export default function FeedbackForm(props) {
   }
 
   function getTypes() {
-    const API_URL = {apiUrl};
+    const API_URL = `${apiUrl}/feedback-type`;;
     try {
       axios
         .get(API_URL, {
@@ -127,7 +127,7 @@ export default function FeedbackForm(props) {
     return encrypted;
   }
   function onSubmit() {
-    const API_URL = {apiUrl};
+    const API_URL = `${apiUrl}/feedback`;
     try {
       const formData = new FormData();
 
@@ -147,7 +147,7 @@ export default function FeedbackForm(props) {
       formData.append("summary", data.summary);
       formData.append("type", data.type);
       formData.append("userId", "admin");
-
+      
       axios
         .post(API_URL, formData, {
           headers: {
@@ -156,6 +156,7 @@ export default function FeedbackForm(props) {
           },
         })
         .then((response) => {
+          console.log(response)
           setStatus({
             code: response.data.status,
             message: response.data.message,
@@ -211,7 +212,6 @@ export default function FeedbackForm(props) {
     left: -700,
     top: -400,
     zIndex: 1,
-    boxShadow: "0 0 0 1px rgba(0, 0, 0, .08), 0 2px 2px rgba(0, 0, 0, .15)",
     outline: "none",
     transition: `all ${2 * 50 + 200}ms cubic-bezier(0.71, 0.71, 0, 1.18) 0ms`,
   };
@@ -220,140 +220,115 @@ export default function FeedbackForm(props) {
 
   return (
     <div style={initStyle}>
-      <div className="card rounded-0 w-100">
-        <div className="card-header p-0">
-          <div className="row m-0 d-flex justify-content-center align-items-center bg-secondary">
-            <div className="col-4 bg-secondary py-2">
-              <img src={logo} className="img-fluid" />
-            </div>
-            <div className="col-8 bg-warning">
-              <h3 className="text-uppercase text-white title-mt text-center">
-                Beta Testing Feedback
-              </h3>
+      <div class="sfw-card sfw-rounded-0 w-100">
+          <div class="sfw-card-header sfw-p-0">
+            <div class="sfw-row sfw-m-0 sfw-d-flex sfw-justify-content-center sfw-align-items-center sfw-bg-secondary">
+              <div class="sfw-col-4 sfw-bg-secondary">
+                <img src={logo} class="sfw-img-fluid"/>
+              </div>
+              <div class="sfw-col-8 sfw-bg-warning">
+                <h3 class="sfw-h3 sfw-text-uppercase sfw-text-white sfw-title-mt sfw-text-center">Beta Testing Feedback</h3>
+              </div>
             </div>
           </div>
-        </div>
-        <ShowMessage status={status} />
-       
-        <div className="card-body px-3 py-2">
-          <div className="row">
-            <div className="col-6 border-right">
-              <div className="form-group">
-                <label htmlFor="summary">
-                  Summary<span className="text-danger">*</span>
-                </label>
-                <input
-                  type="text"
-                  className="form-control form-control-sm"
-                  id="summary"
-                  aria-describedby="summary"
-                  value={data.summary}
-                  onChange={summaryOnChange}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="Type">
-                  Type<span className="text-danger">*</span>
-                </label>
-                <select
-                  className="form-control"
-                  onChange={typeOnChange}
-                  value={data.type}
-                >
-                  <option value="0"> -- Select a type -- </option>
-                  {types.map((type, index) => (
-                    <option key={index} value={type.value}>
-                      {type.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
+         
+          <ShowMessage status={status} />
+          <div class="sfw-card-body sfw-px-3 sfw-py-2">
+            <div class="sfw-row">
+              <div class="sfw-col-6 sfw-border-right">
+                <div class="sfw-form-group">
+                  <label for="summary" class="sfw-label">Summary<span class="sfw-text-danger">*</span></label>
+                  <input type="text" class="sfw-form-control sfw-form-control-sm" id="summary" aria-describedby="summary"
+                     value={data.summary} onChange={summaryOnChange}/>
+                </div>
+                <div class="sfw-form-group">
+                  <label for="feature" class="sfw-label">Type<span class="sfw-text-danger">*</span></label>
+                  <select
+                      className="sfw-form-control"
+                      onChange={typeOnChange}
+                      value={data.type}
+                    >
+                      <option value="0"> -- Select a type -- </option>
+                      {types.map((type, index) => (
+                        <option key={index} value={type.value}>
+                          {type.name}
+                        </option>
+                      ))}
+                    </select>
 
-              <div className="form-group mb-0">
-                <label htmlFor="description">
-                  Description<span className="text-danger">*</span>
-                </label>
-                <textarea
-                  className="form-control form-control-sm"
-                  id="description"
-                  rows="3"
-                  value={data.description}
-                  onChange={descriptionOnChange}
-                ></textarea>
+                </div>
+                <div class="sfw-form-group sfw-mb-0">
+                  <label for="description" class="sfw-label">Description<span class="sfw-text-danger">*</span></label>
+                  <textarea class="sfw-form-control sfw-form-control-sm" id="description" rows="3"
+                    value={data.description}
+                    onChange={descriptionOnChange}></textarea>
+                </div>
               </div>
-            </div>
-
-           
-            <div className="col-6">
-              <div className="media pb-2 mb-2 border-bottom">
+              <div class="sfw-col-6">
+                <div class="sfw-media sfw-pb-2 sfw-mb-2 sfw-border-bottom">
                 {screenShotAdded ? (
-                  <img src={image} className="img-fluid mr-3 w-25" alt="..." />
+                  <img src={image} className="sfw-img-fluid sfw-mr-3 sfw-w-25" alt="..." />
                 ) : (
                   <img
                     src={imagePlaceHolder}
-                    className="img-fluid mr-3 w-25"
+                    className="sfw-img-fluid sfw-mr-3 sfw-w-25"
                     alt="..."
                   />
                 )}
-                <div className="media-body">
-                  <h6 className="small text-secondary">Screenshot</h6>
-                  <div className="input-group input-group-sm mb-3">
-                    <div className="custom-file">
-                      <button
-                        className="btn btn-primary btn-sm align-items-center "
-                        onClick={captureScreenShot}
-                      >
-                        Take a Screenshot
-                      </button>
-                      <button
-                        className="btn btn-danger btn-sm align-items-center ml-2"
-                        onClick={removeScreenShot}
-                      >
-                        X
-                      </button>
+
+                  <div class="sfw-media-body">
+                    <h6 class="sfw-h6 sfw-small sfw-text-secondary sfw-mt-0 sfw-mb-2">Take screenshot</h6> 
+                    <div class="sfw-input-group sfw-mb-3">
+                      <div class="sfw-custom-file">
+                          <button
+                            className="btn btn-primary btn-sm align-items-center"
+                            onClick={captureScreenShot}>
+                            Take a Screenshot
+                          </button>
+                          <button
+                            className="btn btn-danger btn-sm align-items-center ml-2"
+                            onClick={removeScreenShot}>
+                            X
+                          </button>
+
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <h6 className="small text-secondary mb-2">Attach files</h6>
-              <div className="input-group input-group-sm">
-                <div className="custom-file">
-                  <input
-                    type="file"
-                    className="custom-file-input"
-                    id="inputGroupFile"
-                    aria-describedby="inputGroupFileAddon"
-                    onChange={attachFile}
-                  />
-                  <label className="custom-file-label" htmlFor="inputGroupFile">
-                    Choose
-                  </label>
+                <h6 class="sfw-h6 sfw-small sfw-text-secondary sfw-mt-1 sfw-mb-2">Attach files</h6> 
+                <div class="sfw-input-group">
+                  <div class="sfw-custom-file">
+                    <input type="file" class="sfw-custom-file-input" id="inputGroupFile" aria-describedby="inputGroupFileAddon"
+                    onChange={attachFile}/>
+                    <label class="sfw-custom-file-label" for="inputGroupFile">Choose</label>
+                  </div>
                 </div>
+                <ul class="sfw-list-group sfw-list-group-flush scrolldiv">
+                  {uploadedFiles.map((file) => (
+                    <FileItem
+                      key={file.name}
+                      file={file}
+                      removeFile={removeFile}
+                    />
+                  ))}
+
+                  </ul>
+
               </div>
-              <ul className="list-group list-group-flush scrolldiv">
-                {uploadedFiles.map((file) => (
-                  <FileItem
-                    key={file.name}
-                    file={file}
-                    removeFile={removeFile}
-                  />
-                ))}
-              </ul>
+            </div>
+
+          </div>
+          <div class="sfw-card-footer sfw-d-flex sfw-justify-content-between sfw-align-items-center sfw-px-3 sfw-py-2">
+            <div>
+              <small class="sfw-text-muted sfw-small">Powered by Simple Feedback Widget</small>
+            </div>
+            <div>
+              <button class="sfw-btn sfw-btn-primary sfw-btn-sm"  onClick={onSubmit} >Submit</button>
             </div>
           </div>
-        </div>
-        <div className="card-footer d-flex justify-content-between align-items-center px-3 py-2">
-          <div>
-            <small className="text-muted">Powered by Simple Feedback Widget</small>
-          </div>
-          <div>
-            <button className="btn btn-primary btn-sm" onClick={onSubmit}>
-              Submit
-            </button>
-          </div>
-        </div>
-      </div>
+         </div>
+
     </div>
   );
 }
