@@ -25,7 +25,7 @@ import { SimpleFeedbackWidget } from 'simple-feedback-widget';
 import 'simple-feedback-widget/dist/css/floating-button.css';
 import FeedbackSnapShotPlaceHolder from 'simple-feedback-widget/dist/images/image-placeholder.jpg';
 const FeedbackAPI = "";
-const FeedbackAPIKey = "Iv2ogmILjSiFll4zXD7GNnHJ5f2S1aGindoh6dL54E2";
+const FeedbackAPIKey = "Key";
 import logo from "public/images/trigent_logo.svg";
 
 export default function FeedbackWidget() {
