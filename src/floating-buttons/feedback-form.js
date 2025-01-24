@@ -170,7 +170,9 @@ export default function FeedbackForm(props) {
     }
   }
 
-  function captureScreenShot() {
+  function captureScreenShot(event) {
+    event.preventDefault();
+    
     const homeRef = document.getElementsByClassName("app")[0];
     const popUpRef = document.getElementsByClassName("modal-dialog")[0];
 
@@ -220,29 +222,29 @@ export default function FeedbackForm(props) {
 
   return (
     <div style={initStyle}>
-      <div class="sfw-card sfw-rounded-0 w-100">
-          <div class="sfw-card-header sfw-p-0">
-            <div class="sfw-row sfw-m-0 sfw-d-flex sfw-justify-content-center sfw-align-items-center sfw-bg-secondary">
-              <div class="sfw-col-4 sfw-bg-secondary">
-                <img src={logo} class="sfw-img-fluid"/>
+      <div className="sfw-card sfw-rounded-0 w-100">
+          <div className="sfw-card-header sfw-p-0">
+            <div className="sfw-row sfw-m-0 sfw-d-flex sfw-justify-content-center sfw-align-items-center sfw-bg-secondary">
+              <div className="sfw-col-4 sfw-bg-secondary">
+                <img src={logo} className="sfw-img-fluid"/>
               </div>
-              <div class="sfw-col-8 sfw-bg-warning">
-                <h3 class="sfw-h3 sfw-text-uppercase sfw-text-white sfw-title-mt sfw-text-center">Beta Testing Feedback</h3>
+              <div className="sfw-col-8 sfw-bg-warning">
+                <h3 className="sfw-h3 sfw-text-uppercase sfw-text-white sfw-title-mt sfw-text-center">Beta Testing Feedback</h3>
               </div>
             </div>
           </div>
          
           <ShowMessage status={status} />
-          <div class="sfw-card-body sfw-px-3 sfw-py-2">
-            <div class="sfw-row">
-              <div class="sfw-col-6 sfw-border-right">
-                <div class="sfw-form-group">
-                  <label for="summary" class="sfw-label">Summary<span class="sfw-text-danger">*</span></label>
-                  <input type="text" class="sfw-form-control sfw-form-control-sm" id="summary" aria-describedby="summary"
+          <div className="sfw-card-body sfw-px-3 sfw-py-2">
+            <div className="sfw-row">
+              <div className="sfw-col-6 sfw-border-right">
+                <div className="sfw-form-group">
+                  <label htmlFor="summary" className="sfw-label">Summary<span className="sfw-text-danger">*</span></label>
+                  <input type="text" className="sfw-form-control sfw-form-control-sm" id="summary" aria-describedby="summary"
                      value={data.summary} onChange={summaryOnChange}/>
                 </div>
-                <div class="sfw-form-group">
-                  <label for="feature" class="sfw-label">Type<span class="sfw-text-danger">*</span></label>
+                <div className="sfw-form-group">
+                  <label htmlFor="feature" className="sfw-label">Type<span className="sfw-text-danger">*</span></label>
                   <select
                       className="sfw-form-control"
                       onChange={typeOnChange}
@@ -257,15 +259,15 @@ export default function FeedbackForm(props) {
                     </select>
 
                 </div>
-                <div class="sfw-form-group sfw-mb-0">
-                  <label for="description" class="sfw-label">Description<span class="sfw-text-danger">*</span></label>
-                  <textarea class="sfw-form-control sfw-form-control-sm" id="description" rows="3"
+                <div className="sfw-form-group sfw-mb-0">
+                  <label htmlFor="description" className="sfw-label">Description<span className="sfw-text-danger">*</span></label>
+                  <textarea className="sfw-form-control sfw-form-control-sm" id="description" rows="3"
                     value={data.description}
                     onChange={descriptionOnChange}></textarea>
                 </div>
               </div>
-              <div class="sfw-col-6">
-                <div class="sfw-media sfw-pb-2 sfw-mb-2 sfw-border-bottom">
+              <div className="sfw-col-6">
+                <div className="sfw-media sfw-pb-2 sfw-mb-2 sfw-border-bottom">
                 {screenShotAdded ? (
                   <img src={image} className="sfw-img-fluid sfw-mr-3 sfw-w-25" alt="..." />
                 ) : (
@@ -276,10 +278,10 @@ export default function FeedbackForm(props) {
                   />
                 )}
 
-                  <div class="sfw-media-body">
-                    <h6 class="sfw-h6 sfw-small sfw-text-secondary sfw-mt-0 sfw-mb-2">Take screenshot</h6> 
-                    <div class="sfw-input-group sfw-mb-3">
-                      <div class="sfw-custom-file">
+                  <div className="sfw-media-body">
+                    <h6 className="sfw-h6 sfw-small sfw-text-secondary sfw-mt-0 sfw-mb-2">Take screenshot</h6> 
+                    <div className="sfw-input-group sfw-mb-3">
+                      <div className="sfw-custom-file">
                           <button
                             className="btn btn-primary btn-sm align-items-center"
                             onClick={captureScreenShot}>
@@ -296,15 +298,15 @@ export default function FeedbackForm(props) {
                   </div>
                 </div>
 
-                <h6 class="sfw-h6 sfw-small sfw-text-secondary sfw-mt-1 sfw-mb-2">Attach files</h6> 
-                <div class="sfw-input-group">
-                  <div class="sfw-custom-file">
-                    <input type="file" class="sfw-custom-file-input" id="inputGroupFile" aria-describedby="inputGroupFileAddon"
+                <h6 className="sfw-h6 sfw-small sfw-text-secondary sfw-mt-1 sfw-mb-2">Attach files</h6> 
+                <div className="sfw-input-group">
+                  <div className="sfw-custom-file">
+                    <input type="file" className="sfw-custom-file-input" id="inputGroupFile" aria-describedby="inputGroupFileAddon"
                     onChange={attachFile}/>
-                    <label class="sfw-custom-file-label" for="inputGroupFile">Choose</label>
+                    <label className="sfw-custom-file-label" htmlFor="inputGroupFile">Choose</label>
                   </div>
                 </div>
-                <ul class="sfw-list-group sfw-list-group-flush scrolldiv">
+                <ul className="sfw-list-group sfw-list-group-flush scrolldiv">
                   {uploadedFiles.map((file) => (
                     <FileItem
                       key={file.name}
@@ -319,12 +321,12 @@ export default function FeedbackForm(props) {
             </div>
 
           </div>
-          <div class="sfw-card-footer sfw-d-flex sfw-justify-content-between sfw-align-items-center sfw-px-3 sfw-py-2">
+          <div className="sfw-card-footer sfw-d-flex sfw-justify-content-between sfw-align-items-center sfw-px-3 sfw-py-2">
             <div>
-              <small class="sfw-text-muted sfw-small">Powered by Simple Feedback Widget</small>
+              <small className="sfw-text-muted sfw-small">Powered by Simple Feedback Widget</small>
             </div>
             <div>
-              <button class="sfw-btn sfw-btn-primary sfw-btn-sm"  onClick={onSubmit} >Submit</button>
+              <button className="sfw-btn sfw-btn-primary sfw-btn-sm"  onClick={onSubmit} >Submit</button>
             </div>
           </div>
          </div>
