@@ -48,7 +48,7 @@ function ShowMessage({ status }) {
   return null;
 }
 export default function FeedbackForm(props) {
-  const { isOpen , logo, imagePlaceHolder, apiUrl, apiKey} = props;
+  const { isOpen , logo, imagePlaceHolder, apiUrl, apiKey,toggleOpen} = props;
 
   const [data, setData] = useState({
     summary: "",
@@ -163,6 +163,7 @@ export default function FeedbackForm(props) {
           });
           if (response.data.status === 200) {
             clearForm();
+            toggleOpen();
           }
         });
     } catch (error) {
@@ -172,9 +173,9 @@ export default function FeedbackForm(props) {
 
   function captureScreenShot(event) {
     event.preventDefault();
-    
+
     const homeRef = document.getElementsByClassName("app")[0];
-    const popUpRef = document.getElementsByClassName("modal-dialog")[0];
+    const popUpRef = document.querySelectorAll('[role="dialog"]')[0];
 
     setScreenShotAdded(true);
 
@@ -213,7 +214,7 @@ export default function FeedbackForm(props) {
     width: "700px",
     left: -700,
     top: -400,
-    zIndex: 1,
+    zIndex: 100000,
     outline: "none",
     transition: `all ${2 * 50 + 200}ms cubic-bezier(0.71, 0.71, 0, 1.18) 0ms`,
   };

@@ -18,7 +18,7 @@ class Toggler extends Component {
             borderRadius: `${dimension * 0.5}px`, 
             padding: `${(dimension * 0.2) - 1}px`,
             cursor: 'pointer',
-            zIndex: 2,
+            zIndex: 99999,
             position: "relative",
             opacity: "0.9",
             borderWidth: '1px',
