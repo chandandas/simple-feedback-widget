@@ -163,12 +163,15 @@ export default function FeedbackForm(props) {
           });
           if (response.data.status === 200) {
             clearForm();
-            toggleOpen
+           
           }
         });
     } catch (error) {
       console.log(error);
     }
+  }
+  function onCancel(){
+    toggleOpen
   }
 
   function captureScreenShot(event) {
@@ -327,6 +330,7 @@ export default function FeedbackForm(props) {
               <small className="sfw-text-muted sfw-small">Powered by Simple Feedback Widget</small>
             </div>
             <div>
+              <button className="sfw-btn sfw-btn-secondary sfw-btn-sm sfw-mb-2"  onClick={onCancel} >Cancel</button>
               <button className="sfw-btn sfw-btn-primary sfw-btn-sm"  onClick={onSubmit} >Submit</button>
             </div>
           </div>
