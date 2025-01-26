@@ -56,7 +56,7 @@ class FloatingButtons extends Component {
           imagePlaceHolder={imagePlaceHolder}
           apiUrl={apiUrl}
           apiKey={apiKey}
-          toggleOpen={toggleOpen}
+          toggleOpen={this.toggleOpen}
         />
       </div>
     );

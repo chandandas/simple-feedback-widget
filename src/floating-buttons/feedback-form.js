@@ -163,7 +163,7 @@ export default function FeedbackForm(props) {
           });
           if (response.data.status === 200) {
             clearForm();
-            toggleOpen();
+            toggleOpen
           }
         });
     } catch (error) {
@@ -174,8 +174,8 @@ export default function FeedbackForm(props) {
   function captureScreenShot(event) {
     event.preventDefault();
 
-    const homeRef = document.getElementsByClassName("app")[0];
-    const popUpRef = document.querySelectorAll('[role="dialog"]')[0];
+    const homeRef = document.getElementsByClassName("sfw-app")[0];
+    const popUpRef = document.getElementsByClassName('sfw-dialog')[0];
 
     setScreenShotAdded(true);
 
