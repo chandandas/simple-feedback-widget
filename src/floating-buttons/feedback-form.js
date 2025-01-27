@@ -330,8 +330,7 @@ export default function FeedbackForm(props) {
               <small className="sfw-text-muted sfw-small">Powered by Simple Feedback Widget</small>
             </div>
             <div>
-              <button className="sfw-btn sfw-btn-secondary sfw-btn-sm sfw-mb-2"  onClick={onCancel} >Cancel</button>&nbsp;&nbsp;&nbsp;
-              <button className="sfw-btn sfw-btn-primary sfw-btn-sm"  onClick={onSubmit} >Submit</button>
+               <button className="sfw-btn sfw-btn-primary sfw-btn-sm"  onClick={onSubmit} >Submit</button> 
             </div>
           </div>
          </div>
