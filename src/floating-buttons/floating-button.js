@@ -28,15 +28,13 @@ class FloatingButtons extends Component {
       direction,
       distance,
       degree,
-      top,
-      left,
       backgroundColor,
       buttonColor,
       itemBackgroundColor,
       buttonType,
     } = this.props;
     return (
-      <div style={{ position: "absolute", top, left }}>
+      <div style={{ position: "absolute", bottom:"25px" , right:"25px" }}>
         <Toggler
           buttonType={buttonType}
           dimension={dimension}

@@ -198,11 +198,6 @@ button.nav-toggler.hori-dots span:nth-child(3){
     --bs-warning: #f5af32;
 }
 
-body {
-    font-size: .875rem;
-    font-family: 'Poppins', sans-serif;
-    color: #000;
-}
 
 .scrolldiv {
     overflow-y: auto;
