@@ -34,7 +34,7 @@ export default function FeedbackWidget() {
       
    <SimpleFeedbackWidget logo={logo.src} imagePlaceHolder={FeedbackSnapShotPlaceHolder} 
       apiUrl={FeedbackAPI} apiKey={FeedbackAPIKey}
-      buttonType='plus' dimension={30} top={'630px'} left={'1450px'} direction="right"/>
+      buttonType='plus' dimension={30}  direction="right"/>
   );
 }
 
