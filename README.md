@@ -1,6 +1,6 @@
-# simple-feedback-widget
+# simple-login-widget
 
-Simple feedback widget with useful functions.
+Simple login widget with useful functions.
 
 [![NPM version][npm-image]][npm-url]
 
@@ -10,7 +10,7 @@ Simple feedback widget with useful functions.
 ## install
 
 ```
-npm i simple-feedback-widget
+npm i simple-login-widget
 npm start
 ```
 
